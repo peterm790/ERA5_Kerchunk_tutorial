@@ -1,0 +1,19 @@
+sources:
+
+  ERA5-kerchunk-esip:
+    driver: intake_xarray.xzarr.ZarrSource
+    description: 'ERA5-pds Kerchunked virtual dataset'
+    metadata:
+      tags:
+      - reanalysis
+      url: https://registry.opendata.aws/ecmwf-era5/
+    args:
+      consolidated: False
+      urlpath: "reference://"
+      storage_options:
+        fo: 's3://esip-qhub-public/ecmwf/ERA5_1979_2022_multivar.json.zst'
+        remote_options:
+          anon: true
+        remote_protocol: s3
+        ref_storage_args: 
+          compression: 'zstd'
